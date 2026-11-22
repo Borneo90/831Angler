@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>831Angler — Monterey Bay &amp; Highway 1 Fishing &amp; Crab Snare App</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            coast: {
+              bg: '#F6F8F9',
+              navy: '#0F2942',
+              navyLight: '#1B5382',
+              ocean: '#1B6CA8',
+              seafoam: '#24A87C',
+              coral: '#EE6C4D',
+              amber: '#E09F3E',
+              mist: '#E8F0F6',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #F6F8F9;
+      color: #0F2942;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .daylight-card {
+      background: #FFFFFF;
+      border-radius: 26px;
+      box-shadow: 0 10px 35px rgba(15, 41, 66, 0.07), 0 2px 6px rgba(15, 41, 66, 0.04);
+      border: 1px solid rgba(15, 41, 66, 0.06);
+    }
+    .phone-mockup {
+      border-radius: 38px;
+      border: 10px solid #0F2942;
+      box-shadow: 0 25px 60px -12px rgba(15, 41, 66, 0.32), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+      overflow: hidden;
+      background: #0F2942;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .phone-mockup:hover {
+      transform: translateY(-8px);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-coast-ocean selection:text-white">
+
+  <!-- ==================== STICKY TOP NAVBAR ==================== -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3.5 group">
+        <img src="assets/logo.svg" alt="831Angler App Logo" class="w-12 h-12 rounded-2xl shadow-md group-hover:scale-105 transition" />
+        <div>
+          <span class="font-display text-xl font-extrabold tracking-tight text-coast-navy block leading-none">831Angler</span>
+          <span class="text-xs font-semibold text-coast-ocean tracking-wide">MONTEREY BAY &bull; HWY 1 &bull; HALF MOON BAY</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#screenshots" class="hover:text-coast-ocean transition">Live Screenshots</a>
+        <a href="#features" class="hover:text-coast-ocean transition">Features</a>
+        <a href="#bathymetry" class="hover:text-coast-ocean transition">3D Bathymetry &amp; GPS</a>
+        <a href="#crab-run" class="hover:text-coast-ocean transition">Hwy 1 Crab Run</a>
+        <a href="#reports" class="hover:text-coast-ocean transition">Bayside Reports</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#screenshots" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-coast-navy text-white font-display text-sm font-bold shadow-sm hover:bg-coast-ocean transition">
+          <span>Explore the App</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28 bg-gradient-to-b from-[#EAF2F8] via-[#F4F8FB] to-[#F6F8F9]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-coast-seafoam animate-pulse"></span>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-coast-navy">100% Automated &bull; Native Android (Kotlin + Compose)</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-coast-navy tracking-tight leading-[1.1]">
+            Fish the <span class="text-coast-ocean">831 Coast</span> &amp; Run <span class="text-coast-coral">Highway 1 Crab Snares</span> Like a Local.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-medium">
+            Built for anglers fishing <strong>Monterey, Moss Landing, Watsonville, Aptos, Capitola, and Santa Cruz</strong> and running north up Highway 1 through <strong>Davenport &amp; Pescadero to Half Moon Bay</strong>. Powered by live NOAA buoys, Open-Meteo swell telemetry, high-zoom 3D multibeam bathymetry, 1-touch GPS crab net drops, and live <strong>Bayside Marine</strong> daily reports.
+          </p>
+
+          <!-- Key Pill Highlights -->
+          <div class="flex flex-wrap gap-2.5 pt-1">
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-coast-seafoam border border-emerald-200">
+              &#10003; Live NOAA Tides &amp; Swell
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-sky-50 text-coast-ocean border border-sky-200">
+              &#10003; Zoom-19 3D Bathymetry &amp; NOAA ENC Charts
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-orange-50 text-coast-coral border border-orange-200">
+              &#10003; 1-Touch GPS Crab Net Drops
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
+              &#10003; Offline Highway 1 Dead-Zone Cache
+            </span>
+          </div>
+
+          <!-- Hero CTA Buttons + App Logo Showcase Card -->
+          <div class="pt-3 flex flex-wrap items-center gap-4">
+            <a href="#screenshots" class="px-7 py-4 rounded-2xl bg-coast-navy text-white font-display text-base font-extrabold shadow-lg hover:bg-coast-ocean transition flex items-center gap-2.5">
+              <span>View All 4 Live Phone Screens</span>
+              <span>&darr;</span>
+            </a>
+            <div class="flex items-center gap-3 bg-white/90 px-4 py-2.5 rounded-2xl border border-slate-200/80 shadow-sm">
+              <img src="assets/logo.svg" alt="831Angler Adaptive Icon" class="w-10 h-10 rounded-xl" />
+              <div>
+                <div class="text-xs font-extrabold text-coast-navy">Custom Adaptive Android Icon</div>
+                <div class="text-[11px] text-slate-500 font-medium">Coastal Daylight Sunlight-Readable UI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Dual Phone Preview -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative flex items-center justify-center gap-4 sm:gap-6">
+            <div class="phone-mockup w-[210px] sm:w-[240px]">
+              <img src="assets/screenshot-home.png" alt="831Angler Home Dashboard Screenshot" class="w-full h-auto block" />
+            </div>
+            <div class="phone-mockup w-[210px] sm:w-[240px] mt-10">
+              <img src="assets/screenshot-map.png" alt="831Angler 3D Bathymetry Map Screenshot" class="w-full h-auto block" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4-SCREEN LIVE SCREENSHOT GALLERY ==================== -->
+  <section id="screenshots" class="py-20 bg-white border-y border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-coast-ocean">Captured Live from Samsung Galaxy S26+</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-coast-navy mt-2">
+          Four Purpose-Built Tabs. Zero Clutter.
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3 font-medium">
+          Designed with a high-contrast <strong>Coastal Daylight</strong> palette so you can read tide curves, snare weight recommendations, and 3D reef contours in bright beach or jetty sunlight.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Tab 1: Home -->
+        <div class="flex flex-col items-center text-center">
+          <div class="phone-mockup w-[245px] mb-5">
+            <img src="assets/screenshot-home.png" alt="Tab 1: Home Screen" class="w-full h-auto block" />
+          </div>
+          <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase bg-coast-mist text-coast-ocean mb-2">Tab 1 &bull; Home</span>
+          <h3 class="font-display text-lg font-extrabold text-coast-navy">Live Tide, Swell &amp; Species</h3>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed max-w-xs font-medium">
+            Quick location pills (Santa Cruz Harbor, Capitola/Aptos, Davenport, Pescadero, HMB), GO/CAUTION/NO-GO badge, cubic-Bezier tide curve, and 0–100% auto-scored target species.
+          </p>
+        </div>
+
+        <!-- Tab 2: Map -->
+        <div class="flex flex-col items-center text-center">
+          <div class="phone-mockup w-[245px] mb-5">
+            <img src="assets/screenshot-map.png" alt="Tab 2: Minimal 3D Bathymetry Map" class="w-full h-auto block" />
+          </div>
+          <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase bg-emerald-50 text-coast-seafoam mb-2">Tab 2 &bull; Map</span>
+          <h3 class="font-display text-lg font-extrabold text-coast-navy">Ultra-Minimal 3D Bathymetry</h3>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed max-w-xs font-medium">
+            Zoom-19 NOAA NCEI 3D multibeam seafloor relief, NOAA ENC nautical charts, MPA boundary rings, 1-touch GPS crab net drops, and offline ocean tile caching.
+          </p>
+        </div>
+
+        <!-- Tab 3: Crab Run -->
+        <div class="flex flex-col items-center text-center">
+          <div class="phone-mockup w-[245px] mb-5">
+            <img src="assets/screenshot-crab-run.png" alt="Tab 3: Hwy 1 Crab Snare Run" class="w-full h-auto block" />
+          </div>
+          <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase bg-orange-50 text-coast-coral mb-2">Tab 3 &bull; Crab Run</span>
+          <h3 class="font-display text-lg font-extrabold text-coast-navy">Hwy 1 Crab Run &amp; Jetty Analyzer</h3>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed max-w-xs font-medium">
+            Synchronizes your 58-minute drive from Santa Cruz to Half Moon Bay around high/slack tide turns and compares live swell surge between HMB North vs. South Jetties.
+          </p>
+        </div>
+
+        <!-- Tab 4: Reports -->
+        <div class="flex flex-col items-center text-center">
+          <div class="phone-mockup w-[245px] mb-5">
+            <img src="assets/screenshot-reports.png" alt="Tab 4: Bayside Marine & Auto-Reports" class="w-full h-auto block" />
+          </div>
+          <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase bg-amber-50 text-amber-800 mb-2">Tab 4 &bull; Reports</span>
+          <h3 class="font-display text-lg font-extrabold text-coast-navy">Bayside Marine &amp; Auto-Briefs</h3>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed max-w-xs font-medium">
+            Automatically pulls the 3 latest daily fishing reports from Bayside Marine Santa Cruz alongside auto-generated regional briefs, CDFW domoic acid links, and live harbor webcams.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DEEP-DIVE FEATURE GRID ==================== -->
+  <section id="features" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-coast-coral">Zero Manual Entry Architecture</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-coast-navy mt-2">
+          Built Specifically for the 831 to Half Moon Bay Corridor
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <!-- Feature 1 -->
+        <div id="bathymetry" class="daylight-card p-7">
+          <div class="w-12 h-12 rounded-2xl bg-coast-mist text-coast-ocean flex items-center justify-center font-extrabold text-xl mb-4">
+            🌊
+          </div>
+          <h3 class="font-display text-xl font-extrabold text-coast-navy mb-2">
+            Zoom-19 NOAA 3D Bathymetry &amp; Nautical Charts
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed font-medium">
+            Switch between <strong>NOAA NCEI 3D Multibeam Bathymetry</strong> (revealing every nearshore reef shelf, kelp pinnacle, sand trough, and the Monterey Submarine Canyon), official <strong>NOAA Electronic Navigational Charts (ENC)</strong> with depth soundings, and <strong>OpenStreetMap</strong> trails right down to individual pier pilings.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="daylight-card p-7">
+          <div class="w-12 h-12 rounded-2xl bg-orange-50 text-coast-coral flex items-center justify-center font-extrabold text-xl mb-4">
+            🦀
+          </div>
+          <h3 class="font-display text-xl font-extrabold text-coast-navy mb-2">
+            1-Touch GPS Crab Net Drops &amp; Saved Fishing Spots
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed font-medium">
+            Dropping hoop nets or crab traps from a kayak or boat? One tap on <strong>+Net GPS</strong> marks your exact GPS coordinate and timestamp. Long-press any reef or beach trough on the chart to save custom named fishing spots with depth, structure, and bait notes.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="daylight-card p-7">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-coast-seafoam flex items-center justify-center font-extrabold text-xl mb-4">
+            📶
+          </div>
+          <h3 class="font-display text-xl font-extrabold text-coast-navy mb-2">
+            Offline Ocean Map &amp; Hwy 1 Dead-Zone Cache
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed font-medium">
+            Davenport Landing, Waddell Creek, Bean Hollow, and Pescadero are notorious cell dead zones. 831Angler runs an automated <strong>WorkManager</strong> sync that caches NOAA tides, swell forecasts, Bayside reports, and up to <strong>600 MB of offline ocean chart tiles</strong> directly to your phone.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div id="crab-run" class="daylight-card p-7">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-extrabold text-xl mb-4">
+            ⏱️
+          </div>
+          <h3 class="font-display text-xl font-extrabold text-coast-navy mb-2">
+            Hwy 1 Drive-Time + Tide Sync &amp; Snare Weight Engine
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed font-medium">
+            Automatically calculates when to leave Santa Cruz (~58 min drive) so you arrive at Half Moon Bay 90 minutes before the high/slack tide turn. Recommends exact lead snare weights (<code>3–4 oz</code>, <code>4–6 oz</code>, <code>6–8 oz</code>, or <code>8+ oz / Jetty Only</code>) from live wave height and period.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div id="reports" class="daylight-card p-7">
+          <div class="w-12 h-12 rounded-2xl bg-sky-50 text-coast-ocean flex items-center justify-center font-extrabold text-xl mb-4">
+            ⚓
+          </div>
+          <h3 class="font-display text-xl font-extrabold text-coast-navy mb-2">
+            Live Bayside Marine SC Daily Fish Reports
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed font-medium">
+            Pulls and caches the <strong>3 latest "Honest Fish Reports"</strong> straight from <em>Bayside Marine</em> at the Santa Cruz Harbor—so you always know where the white seabass, halibut, rockfish, lingcod, Dungeness crab, and offshore bluefin are biting.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="daylight-card p-7">
+          <div class="w-12 h-12 rounded-2xl bg-slate-100 text-coast-navy flex items-center justify-center font-extrabold text-xl mb-4">
+            🎯
+          </div>
+          <h3 class="font-display text-xl font-extrabold text-coast-navy mb-2">
+            Deterministic Target Species Scoring &amp; Rig Notes
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed font-medium">
+            Scores <strong>Dungeness Crab, Barred Surfperch, California Halibut, Nearshore Rockfish, and Lingcod</strong> from 0–100% using current season regulations, tide swing, swell energy, wind speed, and water temp. Tap any fish card for best tide window and rig setup.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-coast-navy text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3.5">
+        <img src="assets/logo.svg" alt="831Angler Logo" class="w-11 h-11 rounded-2xl" />
+        <div>
+          <div class="font-display text-lg font-extrabold">831Angler</div>
+          <div class="text-xs text-sky-200/80">Native Android App &bull; Monterey Bay, Santa Cruz &amp; Highway 1 North Coast</div>
+        </div>
+      </div>
+      <div class="text-xs text-sky-200/70 text-center sm:text-right">
+        Powered by Live NOAA CO-OPS Tides, NOAA NCEI Bathymetry, Open-Meteo Marine &amp; Bayside Marine SC.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

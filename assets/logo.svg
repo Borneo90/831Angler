@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="512" height="512">
+  <defs>
+    <linearGradient id="oceanBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2942" />
+      <stop offset="55%" stop-color="#154D7A" />
+      <stop offset="100%" stop-color="#1B6CA8" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#071524" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Rounded App Icon Squircle Base -->
+  <rect x="2" y="2" width="104" height="104" rx="24" fill="url(#oceanBg)" />
+
+  <!-- Subtle Bathymetry Depth Contour Lines -->
+  <path d="M4,78 C28,66 52,88 104,68" fill="none" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1.4" />
+  <path d="M4,88 C32,76 58,96 104,78" fill="none" stroke="#24A87C" stroke-opacity="0.24" stroke-width="1.4" />
+
+  <g filter="url(#dropShadow)">
+    <!-- Outer Nautical Compass Crest Ring -->
+    <circle cx="54" cy="54" r="34" fill="none" stroke="#E8F0F6" stroke-opacity="0.35" stroke-width="2.2" />
+
+    <!-- Warm Amber Horizon Sun -->
+    <circle cx="54" cy="36" r="11" fill="#E09F3E" />
+
+    <!-- Bold Coral Dungeness Crab Claws -->
+    <path d="M39,45 C31,37 35,28 43,31 C40,34 40,38 43,41 Z" fill="#EE6C4D" />
+    <path d="M69,45 C77,37 73,28 65,31 C68,34 68,38 65,41 Z" fill="#EE6C4D" />
+
+    <!-- Crab Legs -->
+    <path d="M39,49 L28,46 M38,53 L27,54 M40,57 L31,62" fill="none" stroke="#EE6C4D" stroke-width="2.8" stroke-linecap="round" />
+    <path d="M69,49 L80,46 M70,53 L81,54 M68,57 L77,62" fill="none" stroke="#EE6C4D" stroke-width="2.8" stroke-linecap="round" />
+
+    <!-- Crab Carapace Shell -->
+    <path d="M37,49 C37,41 44,37 54,37 C64,37 71,41 71,49 C71,56 64,61 54,61 C44,61 37,56 37,49 Z" fill="#EE6C4D" stroke="#FFFFFF" stroke-width="1.6" />
+
+    <!-- Crab Eyes -->
+    <circle cx="48" cy="43" r="1.9" fill="#0F2942" />
+    <circle cx="60" cy="43" r="1.9" fill="#0F2942" />
+
+    <!-- Stainless J-Hook Centerpiece -->
+    <path d="M54,32 L54,67 C54,74 63,74 63,67 L63,63 L59,66" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Seafoam Green & Crisp White Rolling Swell Waves -->
+    <path d="M23,69 C34,63 44,73 54,69 C64,63 74,73 85,69 L82,77 C70,85 38,85 26,77 Z" fill="#24A87C" />
+    <path d="M25,68 C35,62 45,72 54,68 C63,62 73,72 83,68" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" />
+  </g>
+</svg>
